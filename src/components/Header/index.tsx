@@ -5,7 +5,7 @@ import { Container } from './styles';
 const Header: React.FC = () => {
   return(
     <Container>
-      <h1>Pokédexx</h1>
+      <h1>Pokédex</h1>
     </Container>
   );
 }

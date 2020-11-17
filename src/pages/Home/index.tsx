@@ -1,15 +1,26 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import { TopSection, ContentSection } from './styles';
+import api from '../../services/api';
 
 import Header from '../../components/Header';
 import Menu from '../../components/Menu';
+import List from '../../components/List';
+
 
 const Home: React.FC = () => {
+
+
+
   return (
     <>
-      <Header />
-      <Menu />
+      <TopSection >
+        <Header />
+      </TopSection>
+      <ContentSection>
+        <Menu />
+        <List />
+      </ContentSection>
     </>
 
   );

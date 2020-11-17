@@ -6,4 +6,10 @@ export default createGlobalStyle`
   padding: 0;
   outline: 0;
   box-sizing: border-box;
+}
+
+body, input, button {
+  font-size: 16px;
+  font-weight: 600; 
+  font-family: 'Press Start 2P', cursive;
 }`
