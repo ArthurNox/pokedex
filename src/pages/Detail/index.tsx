@@ -1,12 +1,34 @@
 import React from 'react';
-import { Interface } from 'readline';
 
+import Header from '../../components/Header';
 import Menu from '../../components/Menu';
-// import { Container } from './styles';
+
+import { TopSection, ContentSection } from '../../styles/global.style';
+
+interface DetailProps {
+  url: string;
+}
+
+const Detail: React.FC<DetailProps> = (props) => {
+
+  
 
 
-const Detail: React.FC = () => {
-  return <Menu />;
+
+  return (
+    <>
+      <TopSection >
+          <Header />
+        </TopSection>
+        <ContentSection>
+          <Menu />
+          <section>
+            <h1>Detail</h1>
+          </section>
+        </ContentSection>
+    </>
+
+  );
 }
 
 export default Detail;

@@ -1,9 +1,18 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import { Container } from './styles';
 
-const Card: React.FC = () => {
-  return <div />;
+interface PokemonProps {
+  name:string;
+  url:string;
 }
 
-export default Card;
+const Card: React.FC<PokemonProps> = (props) => {
+  return (
+    <Container>
+      <p>{props.name}</p>
+    </Container>
+  )
+}
+
+ export default Card;

@@ -6,7 +6,7 @@ export const Container = styled.nav`
   background-color:#4D4D51;
   box-shadow: 2px 2px 4px #000;
 
-  position: fixed;
+  /* position: fixed; */
 
   display: flex;
   justify-content: center;

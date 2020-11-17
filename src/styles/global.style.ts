@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import styled from 'styled-components';
 
 export default createGlobalStyle`
 * {
@@ -13,3 +14,25 @@ body, input, button {
   font-weight: 600; 
   font-family: 'Press Start 2P', cursive;
 }`
+
+export const TopSection = styled.div`
+
+
+`
+
+export const ContentSection = styled.div`
+
+  display: flex;
+  position:relative;
+
+  section{
+    width: 80vw;
+    height: auto;
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+`
