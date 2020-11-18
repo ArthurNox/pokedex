@@ -8,30 +8,18 @@ interface PokemonProps {
   url:string;
 }
 
-interface DetailProps{  
-  url: string;
-}
-
 const Card: React.FC<PokemonProps> = (props) => {
   const hystory = useHistory();
 
   function handleClick(s: String){
-    hystory.push('/detail', s);
+    hystory.push(`/detail/${s}`);
   }
 
   return (
 
-    <Container onClick={()=>handleClick(props.url)}>
+    <Container onClick={()=>handleClick(props.name)}>
       <p>{props.name}</p>
     </Container>
-    //   <Link to={{
-    //     pathname:'/detail',
-    //     url: {props.url}
-    //   }}>
-    //   <Container>
-    //     <p>{props.name}</p>
-    //  </Container>
-    // </Link>
   )
 }
 

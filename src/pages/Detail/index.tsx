@@ -1,48 +1,51 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory, useLocation,  } from "react-router-dom";
-import axios from 'axios';
+import { useHistory, useParams  } from "react-router-dom";
 
+import api from '../../services/api';
 import Header from '../../components/Header';
 import Menu from '../../components/Menu';
 
 import { TopSection, ContentSection } from '../../styles/global.style';
 
 interface IDetail {
-  imagem: string;
-  id: number;
-  name: string;
+  image: string;
   type: string;
   weight: number;
 }
-
-interface DetailProps {
-  url: string;
+interface Params {
+  name: string;
 }
 
-const Detail: React.FC<DetailProps> = (props) => {
+const Detail: React.FC = (props) => {
+  const { name } = useParams<Params>()
   const [ detailPokemon, setDetailPokemon ] = useState<IDetail>();
-  const [ name, setName] = useState('');
-  const [ img, setImg ] = useState('');
-  const [ type, setType ] = useState([]);
 
   const history = useHistory();
-  const location = useLocation();
-
-  const state = location.state;
 
   useEffect(() => {
-    axios
-      .get(`${state}`)
+    api
+      .get(`pokemon/${name}`)
         .then((response) => {
 
-          
-          setImg(response.data.sprites.other['official-artwork'].front_default)
-          setName(response.data.name)
+          setDetailPokemon(prevState => {
+            return{
+              ...prevState,
+              image: response.data.sprites.other['official-artwork'].front_default,
+              type:response.data.types[0].type.name,
+              weight: response.data.weight,
+            }
+          })
+        
+          console.log(detailPokemon)
+          // setImg(response.data.sprites.other['official-artwork'].front_default)
+          // setName(response.data.name)
           // console.log(response.data.types.type.name)
           // let list = response.data.results
 
           // setImg()
           // setDetailPokemon()
+
+         
           
         })
       .catch((error) => {
@@ -65,8 +68,10 @@ const Detail: React.FC<DetailProps> = (props) => {
           <Menu />
           <section>
             <button type="button" onClick={() => handleBack()}></button>
-            <img src={img}></img>
+            <img src={detailPokemon?.image}></img>
             <h1>{name}</h1>
+            <p>{detailPokemon?.type}</p>
+            <p>{detailPokemon?.weight}</p>
           </section>
         </ContentSection>
     </>

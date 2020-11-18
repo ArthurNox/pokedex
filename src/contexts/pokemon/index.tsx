@@ -1,20 +1,32 @@
-import React, { createContext, useContext, useState, useMemo, useEffect, Children } from "react";
-import PropTypes from "prop-types";
+import React, { createContext, useContext, useState,  useEffect, Children } from "react";
 
 import api from '../../services/api';
 
-const PokemonContext = createContext({});
+interface Monster {
+  name: string;
+  url: string;
+}
 
-export const PokemonProvider = ({}) => {
-  const [pokemon, setPokemon] = useState([]);
+interface PokemonContextType {
+  pokemon: Array<Monster>;
+  setPokemon: (value: any) => void;
+  nav: number;
+  setNav: (value: number) => void;
+
+};
+
+const PokemonContext = createContext<PokemonContextType | null>(null);
+
+export const PokemonProvider = ({children}: any) => {
+  const [pokemon, setPokemon] = useState<Monster[]>([]);
   const [nav, setNav] = useState<number>(0);
 
   useEffect(() => {
     api
-      .get(`/pokemon/?offset=${nav}&limit=7`)
+      .get(`/pokemon/?offset=${nav}&limit=5`)
         .then((response) => {
-          let list = response.data.results
-          setPokemon(list)
+          setPokemon(response.data.results)
+          console.log(pokemon)
         })
       .catch((error) => {
         alert("Ocorreu um erro ao buscar os items");
@@ -30,27 +42,23 @@ export const PokemonProvider = ({}) => {
         setNav,
       }}
     >
-      {Children}
+    {children}
     </PokemonContext.Provider>
   )
 };
 
-// export const usePokemon = () => {
-//   const context = useContext(PokemonContext);
+export const usePokemon = () => {
+  const context = useContext(PokemonContext);
 
-//   if (!context)
-//     throw new Error("usePokemon must be used within a PokemonContext.");
+  if (!context)
+    throw new Error("usePokemon must be used within a PokemonContext.");
 
-//   const { pokemon, setPokemon, nav, useNav } = context;
+  const { pokemon, setPokemon, nav, setNav } = context;
 
-//   return {
-//     pokemon, 
-//     setPokemon,
-//     nav,
-//     useNav,
-//   };
-// };
-
-PokemonProvider.propTypes = {
-  children: PropTypes.node.isRequired,
+  return {
+    pokemon, 
+    setPokemon,
+    nav,
+    setNav,
+  };
 };
