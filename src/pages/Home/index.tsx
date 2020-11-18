@@ -1,7 +1,6 @@
-import React, { createContext, useContext, useState, useMemo, useEffect } from "react";
+import React, {  useState, useEffect } from "react";
 
 import { TopSection, ContentSection } from '../../styles/global.style';
-// import { Card } from './styles';
 
 import api from '../../services/api';
 
