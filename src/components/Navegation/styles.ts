@@ -9,6 +9,7 @@ export const Button = styled.button`
     text-decoration: none;
     color: #000000;
     background-color:#CCCCCC;
+    margin-top: 0.6rem;
     cursor: pointer;
 
     :hover{

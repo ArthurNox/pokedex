@@ -6,6 +6,7 @@ import Header from '../../components/Header';
 import Menu from '../../components/Menu';
 
 import { TopSection, ContentSection } from '../../styles/global.style';
+import { Container } from './style';
 
 interface IDetail {
   image: string;
@@ -66,13 +67,15 @@ const Detail: React.FC = (props) => {
         </TopSection>
         <ContentSection>
           <Menu />
-          <section>
-            <button type="button" onClick={() => handleBack()}></button>
-            <img src={detailPokemon?.image}></img>
-            <h1>{name}</h1>
-            <p>{detailPokemon?.type}</p>
-            <p>{detailPokemon?.weight}</p>
-          </section>
+          <Container>
+            <section>
+              <img src={detailPokemon?.image}></img>
+              <h1>{name}</h1>
+              <p>Type: {detailPokemon?.type}</p>
+              <p>Weight: {detailPokemon?.weight}</p>
+              <button type="button" onClick={() => handleBack()}>Back</button>
+            </section>
+          </Container>
         </ContentSection>
     </>
 

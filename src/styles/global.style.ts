@@ -21,18 +21,6 @@ export const TopSection = styled.div`
 `
 
 export const ContentSection = styled.div`
-
   display: flex;
   position:relative;
-
-  section{
-    width: 80vw;
-    height: auto;
-    background-color: yellow;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
 `

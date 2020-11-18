@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
 import { Container } from './styles';
 
@@ -9,7 +8,7 @@ import { usePokemon } from '../../contexts/pokemon';
 
 const Menu: React.FC = () => {
   const [search, setSearch] = useState("");
-  const { pokemon, setPokemon, setNav} = usePokemon();
+  const { setPokemon } = usePokemon();
 
   //TODO tratar pesquisa vazia
   function handleSearch () {
@@ -27,9 +26,7 @@ const Menu: React.FC = () => {
       });
 
     setSearch("")
-    } else {
-      setNav(0)
-    }
+    } 
   }
 
   return (

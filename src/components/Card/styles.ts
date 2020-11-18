@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+    background-color:white;
     min-width: 65vw;
     height: 10vh;
     border-style: solid;
@@ -10,5 +11,10 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;  
+
+    :hover{
+        background-color:#CCCCCC;
+    }
+
 
 `
