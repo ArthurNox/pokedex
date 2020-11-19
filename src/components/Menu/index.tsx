@@ -11,15 +11,6 @@ const Menu: React.FC = () => {
   const [type, setSearchType] = useState("");
   const { setPokemon } = usePokemon();
 
-  interface Colletc {
-    pokemon: Array<Monster>;
-    slot: string;
-  }
-  interface Monster {
-    name: string;
-    url: string;
-  }
-
   function searchName () {
     if(name!== ""){
       api
@@ -28,7 +19,6 @@ const Menu: React.FC = () => {
             let vectorContent = [
               response.data.species
             ]
-            console.log(vectorContent)
             setPokemon(vectorContent)
         })
       .catch((error) => {
@@ -38,34 +28,18 @@ const Menu: React.FC = () => {
       setSearchName("")
     } 
   }
-  //TODO Tratar o response dos tipos
   function searchType () {
     if(type!== ""){
       api
-      .get<Colletc>(`type/${type}`)
+      .get(`type/${type}`)
         .then((response) => {
-          //  var content:Colletc = response.data.pokemon
-          //  let vectorContent = []
 
-           
-          //  console.log(response.data.pokemon)
+          let vectorContent = []
+          for (let i = 0; i < response.data.pokemon.length; i++) {
+            vectorContent.push(response.data.pokemon[i].pokemon)
+          }
 
-          // for (let a of response.data.pokemon){
-          //     console.log(vectorContent)
-          //     vectorContent.push({...{}})
-          //   }
-          // for (let a of response.data.pokemon ){
-          //   console.log(a.name)
-          // }
-          // console.log(response.data.pokemon.pokemon)
-
-          // for (let i = 0; i < response.data.pokemon.length; i++) {
-          //     console.log(response.data.pokemon[i])
-          //     for (let j = 0; j < response.data.pokemon[i].length; j++) {
-          //       vectorContent.push = response.data.pokemon[j];
-                
-          //     } 
-          // }
+          setPokemon(vectorContent)
         })
       .catch((error) => {
         alert("Ocorreu um erro ao buscar os items");

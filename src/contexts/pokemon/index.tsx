@@ -26,7 +26,6 @@ export const PokemonProvider = ({children}: any) => {
       .get(`/pokemon/?offset=${nav}&limit=5`)
         .then((response) => {
           setPokemon(response.data.results)
-          console.log(pokemon)
         })
       .catch((error) => {
         alert("Ocorreu um erro ao buscar os items");

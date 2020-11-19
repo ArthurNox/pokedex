@@ -58,7 +58,7 @@ const Detail: React.FC = (props) => {
       <Header />
       <Container>
         <section>
-          <img src={detailPokemon?.image}></img>
+          <img src={detailPokemon?.image}alt="POkémon Image"></img>
           <p>ID: {detailPokemon?.id}</p>
           <h1>{name}</h1>
           <p>Type: {detailPokemon?.type}</p>
