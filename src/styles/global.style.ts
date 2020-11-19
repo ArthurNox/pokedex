@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import styled from 'styled-components';
 
 export default createGlobalStyle`
 * {
@@ -15,12 +14,3 @@ body, input, button {
   font-family: 'Press Start 2P', cursive;
 }`
 
-export const TopSection = styled.div`
-
-
-`
-
-export const ContentSection = styled.div`
-  display: flex;
-  position:relative;
-`

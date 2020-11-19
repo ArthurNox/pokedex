@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  width: 90vw;
+export const Container = styled.footer`
+width: 90vw;
   height: 9vh;
   background-color:#4D4D51;
-  border-bottom-right-radius: 15px;
-  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 
   display: flex;
   justify-content: center;
@@ -33,7 +33,6 @@ button:hover{
 }
 
 input{
-  width: 21vw;
-  height: 5vh;
-}
-`
+  width: 41vw;
+  height: 4vh;
+}`

@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+export const ContentPage = styled.div`
   width: 100vw;
   height: auto;
   background-color: white;
@@ -20,3 +26,4 @@ export const Container = styled.div`
   }
 
 `
+

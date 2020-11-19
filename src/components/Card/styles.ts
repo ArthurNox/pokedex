@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     background-color:white;
-    min-width: 65vw;
-    height: 10vh;
+    min-width: 60vw;
+    height: 9vh;
     border-style: solid;
     margin-bottom: 5px;
     cursor: pointer;

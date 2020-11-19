@@ -10,7 +10,8 @@ export const Container = styled.div`
 
   section{
     background-color: #9D9998;
-    padding: 4rem 10rem;
+    padding: 6vw;
+    margin-top: 1vh;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
